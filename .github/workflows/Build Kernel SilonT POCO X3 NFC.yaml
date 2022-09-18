@@ -20,11 +20,11 @@ jobs:
         ref: richelieu
         fetch-depth: 1
 
-    #- name: Setup Env
-    #  run: |
-    #    sudo apt update
-    #    sudo apt install clang aarch64-linux-gnu llvm -yy
-    #    make O=out ARCH=arm64 arch/arm64/config/surya_defconfig
+    - name: Setup Env
+      run: |
+        sudo apt update
+        sudo apt install clang binuttils lld aarch64-linux-gnu llvm -yy
+        make O=out ARCH=arm64 arch/arm64/config/surya_defconfig
 
     - name: Setup Debuge
       uses: mxschmitt/action-tmate@v3
