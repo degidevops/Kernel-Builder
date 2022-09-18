@@ -23,3 +23,8 @@ jobs:
     - name: Setup Debuge
       uses: mxschmitt/action-tmate@v3
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+    
+    - name: Build
+      run: |
+        echo "degidevops" > .builderdata
+        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 LLVM=1
