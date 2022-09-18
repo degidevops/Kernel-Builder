@@ -34,3 +34,13 @@ jobs:
       run: |
         echo "degidevops" > .builderdata
         make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 LLVM=1
+
+    - name: Upload file
+      uses: actions/upload-artifact@v3
+      with:
+        name: Kernel File
+        path: |
+          out/arch/arm64/boot/Image.gz
+          out/arch/arm64/boot/dtbo.img
+          out/arch/arm64/boot/dtb.img
+          
