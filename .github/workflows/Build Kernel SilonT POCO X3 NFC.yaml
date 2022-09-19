@@ -23,7 +23,7 @@ jobs:
     - name: Setup Env
       run: |
         sudo apt update
-        sudo apt install clang binuttils lld aarch64-linux-gnu llvm -yy
+        sudo apt install clang binutils-aarch64-linux-gnu llvm -yy
         make O=out ARCH=arm64 arch/arm64/config/surya_defconfig
 
     - name: Setup Debuge
@@ -33,7 +33,7 @@ jobs:
     - name: Build
       run: |
         echo "degidevops" > .builderdata
-        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 LLVM=1
+        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 LLVM=1 LD=lld
 
     - name: Upload file
       uses: actions/upload-artifact@v3
