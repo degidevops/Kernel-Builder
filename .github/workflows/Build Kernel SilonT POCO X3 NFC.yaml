@@ -43,4 +43,5 @@ jobs:
           out/arch/arm64/boot/Image.gz
           out/arch/arm64/boot/dtbo.img
           out/arch/arm64/boot/dtb.img
+          out/.config
           
