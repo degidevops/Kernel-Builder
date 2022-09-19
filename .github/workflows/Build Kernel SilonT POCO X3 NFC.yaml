@@ -23,7 +23,7 @@ jobs:
     - name: Setup Env
       run: |
         sudo apt update
-        sudo apt install clang binutils-aarch64-linux-gnu llvm -yy
+        sudo apt-get install -y clang binutils-aarch64-linux-gnu llvm
         make O=out ARCH=arm64 arch/arm64/config/surya_defconfig
 
     - name: Setup Debuge
