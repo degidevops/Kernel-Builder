@@ -24,7 +24,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt-get install -y clang binutils-aarch64-linux-gnu llvm
-        make O=out ARCH=arm64 surya_defconfig
+        make O=out ARCH=arm64 SUBARCH=arm64 surya_defconfig
 
     - name: Setup Debuge
       uses: mxschmitt/action-tmate@v3
@@ -33,7 +33,7 @@ jobs:
     - name: Build
       run: |
         echo "degidevops" > .builderdata
-        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 LLVM=1 LD=ld
+        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 SUBARCH=arm64 LLVM=1 LD=aarch64-linux-gnu-ld
 
     - name: Upload file
       uses: actions/upload-artifact@v3
