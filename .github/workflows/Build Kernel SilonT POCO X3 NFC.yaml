@@ -33,7 +33,7 @@ jobs:
     - name: Build
       run: |
         echo "degidevops" > .builderdata
-        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 SUBARCH=arm64 LLVM=1 LD=aarch64-linux-gnu-ld
+        make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 SUBARCH=arm64 LLVM=1 LD=ld.gold
 
     - name: Upload file
       uses: actions/upload-artifact@v3
