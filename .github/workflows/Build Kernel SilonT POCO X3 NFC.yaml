@@ -20,6 +20,14 @@ jobs:
         ref: richelieu
         fetch-depth: 1
 
+    - name: Checkout AnyKernel3
+      uses: actions/checkout@v3
+      with:
+        repository: degidevops/AnyKernel3
+        path: packer
+        run: |
+          ls -a
+
     - name: Setup Env
       run: |
         sudo apt update
