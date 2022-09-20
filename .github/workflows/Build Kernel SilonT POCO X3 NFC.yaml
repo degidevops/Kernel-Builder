@@ -55,11 +55,10 @@ jobs:
         cp ${KDTB} .
         zip -r9 "MSecureKernel-unsigned.zip" ./* -x .git README.md *placeholder
 
-    - name: Upload file
-      working-directory: ./packer
+    - name: Upload File
       uses: actions/upload-artifact@v3
       with:
         name: Kernel File
         path: |
-          MSecureKernel-unsigned.zip
+          packer/MSecureKernel-unsigned.zip
           
