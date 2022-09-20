@@ -30,9 +30,6 @@ jobs:
     - name: Setup Env
       working-directory: kernel
       run: |
-        export KIMG=${PWD}/out/arch/arm64/boot/Image.gz
-        export KDTBO=${PWD}/out/arch/arm64/boot/dtbo.img
-        export KDTB=${PWD}/out/arch/arm64/boot/dtb.img
         sudo apt update
         sudo apt-get install -y clang binutils-aarch64-linux-gnu llvm lld
         make O=out ARCH=arm64 SUBARCH=arm64 surya_defconfig
@@ -50,9 +47,9 @@ jobs:
     - name: Packing Kernel
       working-directory: packer
       run: |
-        cp ${KIMG} .
-        cp ${KDTBO} .
-        cp ${KDTB} .
+        cp ../kernel/out/arch/arm64/boot/Image.gz ./
+        cp ../kernel/out/arch/arm64/boot/dtb.img ./
+        cp ../kernel/out/arch/arm64/boot/dtbo.img ./
         zip -r9 "MSecureKernel-unsigned.zip" ./* -x .git README.md *placeholder
 
     - name: Upload File
