@@ -28,7 +28,7 @@ jobs:
         path: packer
 
     - name: Setup Env
-      working-directory: ./kernel
+      working-directory: kernel
       run: |
         export KIMG=${PWD}/out/arch/arm64/boot/Image.gz
         export KDTBO=${PWD}/out/arch/arm64/boot/dtbo.img
@@ -42,13 +42,13 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
     
     - name: Build
-      working-directory: ./kernel
+      working-directory: kernel
       run: |
         echo "degidevops" > .builderdata
         make -j$(nproc --all) CC=clang CROSS_COMPILE=aarch64-linux-gnu- O=out ARCH=arm64 SUBARCH=arm64 LLVM=1 LD=ld.lld
 
     - name: Packing Kernel
-      working-directory: ./packer
+      working-directory: packer
       run: |
         cp ${KIMG} .
         cp ${KDTBO} .
