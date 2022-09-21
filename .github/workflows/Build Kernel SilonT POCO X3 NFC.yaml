@@ -32,7 +32,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt-get install -y clang binutils-aarch64-linux-gnu llvm lld
-        make O=out ARCH=arm64 SUBARCH=arm64 surya_defconfig_new
+        make O=out ARCH=arm64 SUBARCH=arm64 surya_defconfig
 
     - name: Setup Debug
       uses: mxschmitt/action-tmate@v3
