@@ -18,8 +18,14 @@ jobs:
       with:
         repository: degidevops/kernel_xiaomi_surya
         ref: richelieu
-        fetch-depth: 1
+        fetch-depth: 0
         path: kernel
+        
+    - name: setting build specific commit
+      shell: bash
+      run: |
+        cd kernel && git config user.email degidevops@gmail.com && git config user.name degidevops
+        git reset --hard fe70db09560e39e4f69b3bd5ae80b2b2fc320b9a
 
     - name: Checkout AnyKernel3
       uses: actions/checkout@v3
