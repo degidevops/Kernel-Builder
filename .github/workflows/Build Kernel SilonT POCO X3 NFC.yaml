@@ -21,11 +21,11 @@ jobs:
         fetch-depth: 0
         path: kernel
         
-    - name: setting build specific commit
-      shell: bash
-      run: |
-        cd kernel && git config user.email degidevops@gmail.com && git config user.name degidevops
-        git reset --hard 900d75e8f493bfcbe54ce5d7c5e77e7cbd45a83d
+    #- name: setting build specific commit
+    #  shell: bash
+    #  run: |
+    #    cd kernel && git config user.email degidevops@gmail.com && git config user.name degidevops
+    #    git reset --hard 900d75e8f493bfcbe54ce5d7c5e77e7cbd45a83d
 
     - name: Checkout AnyKernel3
       uses: actions/checkout@v3
