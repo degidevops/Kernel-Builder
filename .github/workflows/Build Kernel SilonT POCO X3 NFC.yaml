@@ -18,7 +18,7 @@ jobs:
       with:
         repository: degidevops/kernel_xiaomi_surya
         ref: richelieu
-        fetch-depth: 1
+        fetch-depth: 0
         path: kernel
         
     - name: setting build specific commit
