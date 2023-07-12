@@ -16,9 +16,9 @@ jobs:
     - name: Checkout kernel source
       uses: actions/checkout@v3
       with:
-        repository: degidevops/kernel_xiaomi_surya
+        repository: degidevops/android_kernel_xiaomi_surya
         ref: richelieu
-        fetch-depth: 0
+        fetch-depth: 1
         path: kernel
         
     #- name: setting build specific commit
