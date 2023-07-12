@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: degidevops/android_kernel_xiaomi_surya
-        ref: richelieu
+        ref: lineage-20
         fetch-depth: 1
         path: kernel
         
